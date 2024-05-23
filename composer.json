@@ -1,6 +1,6 @@
 {
-    "name": "saleswarp/saleswarp-ship",
-    "description": "Connect Magento2 store with SalesWarp",
+    "name": "saleswarp/saleswarp-ship-dev",
+    "description": "Connect Magento2 store with SalesWarp Dev",
     "require": {},
     "type": "magento2-module",
     "version": "1.0",
