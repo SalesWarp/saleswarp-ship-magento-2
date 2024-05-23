@@ -1,6 +1,6 @@
 {
-    "name": "saleswarp/saleswarp-ship-dev",
-    "description": "Connect Magento2 store with SalesWarp Dev",
+    "name": "saleswarp/saleswarp-ship-staging",
+    "description": "Connect Magento2 store with SalesWarp Staging",
     "require": {},
     "type": "magento2-module",
     "version": "1.0",
