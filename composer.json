@@ -4,7 +4,10 @@
     "require": {},
     "type": "magento2-module",
     "version": "1.0",
-    "license": "MIT",
+    "license": [
+        "MIT",
+        "OSL-3.0"
+    ],
     "autoload": {
        "files": [ "registration.php" ],
        "psr-4": {
