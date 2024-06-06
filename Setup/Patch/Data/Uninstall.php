@@ -1,6 +1,6 @@
 <?php
 
-namespace Saleswarp\SaleswarpShip\Setup;
+namespace Saleswarp\SaleswarpShip\Setup\Patch\Data;
 
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
