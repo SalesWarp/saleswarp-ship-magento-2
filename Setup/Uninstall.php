@@ -1,6 +1,6 @@
 <?php
 
-namespace Saleswarp\SaleswarpShip\Setup\Patch\Data;
+namespace Saleswarp\SaleswarpShip\Setup;
 
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
@@ -14,7 +14,7 @@ class Uninstall implements UninstallInterface
 
         $connection = $setup->getConnection();
 
-        $connection->delete($setup->getTable('patch_list'), ['patch_name = ?' => '%Saleswarp\SaleswarpShip%']);
+        $connection->delete($setup->getTable('patch_list'), ['patch_name = ?' => '%SaleswarpShip%']);
         $connection->delete($setup->getTable('integration'), ['name = ?' => '%SaleswarpShip%']);
 
         $setup->endSetup();
