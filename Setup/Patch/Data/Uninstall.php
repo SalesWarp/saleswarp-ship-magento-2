@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Saleswarp\SaleswarpShip\Setup\Patch\Data;
+namespace Saleswarp\SaleswarpShipDev\Setup\Patch\Data;
 
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\Db\Select;
@@ -49,10 +49,10 @@ class Uninstall implements DataPatchInterface
 
         /** @var AdapterInterface $connection */
         $connection = $installer->getConnection();
-        $connection->delete($setup->getTable('patch_list'), ['patch_name = ?' => 'Saleswarp\SaleswarpShip%']);
-        $connection->delete($setup->getTable('integration'), ['name = ?' => 'SaleswarpShip%']);
+        $connection->delete($setup->getTable('patch_list'), ['patch_name = ?' => 'Saleswarp\SaleswarpShipDev%']);
+        $connection->delete($setup->getTable('integration'), ['name = ?' => 'SaleswarpShipDev%']);
 
-		$connection->query("DELETE FROM `patch_list` WHERE `patch_list`.`patch_name` LIKE 'Saleswarp\SaleswarpShip%'");
+		$connection->query("DELETE FROM `patch_list` WHERE `patch_list`.`patch_name` LIKE 'Saleswarp\SaleswarpShipDev%'");
 
         $installer->endSetup();
     }

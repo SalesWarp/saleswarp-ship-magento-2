@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Saleswarp\SaleswarpShip\Setup\Patch\Data;
+namespace Saleswarp\SaleswarpShipDev\Setup\Patch\Data;
 
 use Magento\Integration\Model\ConfigBasedIntegrationManager;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
@@ -30,7 +30,7 @@ class PatchData implements DataPatchInterface
      */
     public function apply()
     {
-        $this->integrationManager->processIntegrationConfig(['SaleswarpShip']);
+        $this->integrationManager->processIntegrationConfig(['SaleswarpShipDev']);
     }
 
     /**
