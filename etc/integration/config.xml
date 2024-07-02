@@ -1,6 +1,6 @@
 <integrations>
     <integration name="SaleswarpShip">
-       <email>sales@saleswarp.com</email>
+       <email>partner_dev@saleswarp.com</email>
        <endpoint_url>https://auth-api.saleswarp.com/v1/magento/callback</endpoint_url>
        <identity_link_url>https://auth-api.saleswarp.com/v1/magento/install</identity_link_url>
     </integration>

@@ -19,19 +19,19 @@ class PatchData implements DataPatchInterface, PatchRevertableInterface
      */
      private $integrationManager;
 
-	/**
-	 * @var ModuleDataSetupInterface
-	 */
-	 private $moduleDataSetup;
+    /**
+     * @var ModuleDataSetupInterface
+     */
+     private $moduleDataSetup;
 
     /**
      * @param ConfigBasedIntegrationManager $integrationManager
+     * @param ModuleDataSetupInterface      $moduleDataSetup
      */
     public function __construct(
-    	ConfigBasedIntegrationManager $integrationManager,
-    	ModuleDataSetupInterface $moduleDataSetup
-    )
-    {
+        ConfigBasedIntegrationManager $integrationManager,
+        ModuleDataSetupInterface $moduleDataSetup
+    ) {
         $this->integrationManager = $integrationManager;
         $this->moduleDataSetup    = $moduleDataSetup;
     }
@@ -71,9 +71,12 @@ class PatchData implements DataPatchInterface, PatchRevertableInterface
     /**
      * @inheritdoc
      */
-	public function revert()
-	{
-        $this->moduleDataSetup->getConnection()->query("DELETE FROM `integration` WHERE `integration`.`name` LIKE 'SaleswarpShip'");
-        $this->moduleDataSetup->getConnection()->query("DELETE FROM `patch_list` WHERE `patch_list`.`patch_name` LIKE 'Saleswarp\SaleswarpShip\%'");
-	}
+    public function revert()
+    {
+        $patchListTable = $this->moduleDataSetup->getTable('patch_list');
+        $this->moduleDataSetup->getConnection()->delete($patchListTable, ['patch_name = ?' => '%\SaleswarpShip\%']);
+
+        $integrationTable = $this->moduleDataSetup->getTable('integration');
+        $this->moduleDataSetup->getConnection()->delete($integrationTable, ['name = ?' => 'SaleswarpShip']);
+    }
 }
