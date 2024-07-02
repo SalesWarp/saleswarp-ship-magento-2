@@ -1,8 +1,8 @@
-**Saleswarp Ship**
+**SalesWarp Ship**
 
 Shipping + Order Management
 
-  - Manage Orders & Shipments with Shopify, Amazon, Ebay…
+  - Manage Orders & Shipments with Magento, Shopify, Amazon, Ebay…
   - Perfect for small business
   - Signup below for instant setup.
   - Discounts on Shipping Rates! USPS & UPS
@@ -10,8 +10,16 @@ Shipping + Order Management
 
 **Installation Guide:**
 Install via composer (recommend)
-Run the following command in Magento 2 root folder:
+	Run the following command in Magento 2 root folder:
 
-  - composer require saleswarp/saleswarp-ship
-  - php bin/magento setup:upgrade
-  - php bin/magento setup:static-content:deploy
+	  - composer require saleswarp/saleswarp-ship
+	  - bin/magento module:enable Saleswarp_SaleswarpShip
+	  - bin/magento setup:upgrade
+	  - bin/magento setup:static-content:deploy
+
+UnInstall via composer (recommend)
+	Run the following command in Magento 2 root folder:
+
+	  - bin/magento module:uninstall -r Saleswarp_SaleswarpShip
+	  - bin/magento setup:upgrade
+	  - bin/magento setup:static-content:deploy

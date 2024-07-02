@@ -5,12 +5,13 @@ namespace Saleswarp\SaleswarpShip\Setup\Patch\Data;
 
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 use Magento\Integration\Model\ConfigBasedIntegrationManager;
 
 /**
  * Setup data patch class to change config path
  */
-class PatchData implements DataPatchInterface
+class PatchData implements DataPatchInterface, PatchRevertableInterface
 {
 
     /**
