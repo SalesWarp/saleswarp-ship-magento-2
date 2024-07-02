@@ -72,7 +72,7 @@ class PatchData implements DataPatchInterface
      */
 	public function revert()
 	{
-        $this->moduleDataSetup->getConnection()->query("DELETE FROM `integration` WHERE `integration`.`name` LIKE 'SaleswarpShip%'");
-        $this->moduleDataSetup->getConnection()->query("DELETE FROM `patch_list` WHERE `patch_list`.`patch_name` LIKE 'Saleswarp\SaleswarpShip%'");
+        $this->moduleDataSetup->getConnection()->query("DELETE FROM `integration` WHERE `integration`.`name` LIKE 'SaleswarpShip'");
+        $this->moduleDataSetup->getConnection()->query("DELETE FROM `patch_list` WHERE `patch_list`.`patch_name` LIKE 'Saleswarp\SaleswarpShip\%'");
 	}
 }
