@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace Saleswarp\SaleswarpShip\Setup\Patch\Data;
 
-use Magento\Integration\Model\ConfigBasedIntegrationManager;
-use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Eav\Setup\EavSetup;
-use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Magento\Integration\Model\ConfigBasedIntegrationManager;
 
 /**
  * Setup data patch class to change config path
@@ -25,23 +23,16 @@ class PatchData implements DataPatchInterface
 	 */
 	 private $moduleDataSetup;
 
-	/**
-	 * @var EavSetupFactory
-	 */
-	 private $eavSetupFactory;
-
     /**
      * @param ConfigBasedIntegrationManager $integrationManager
      */
     public function __construct(
     	ConfigBasedIntegrationManager $integrationManager,
-    	ModuleDataSetupInterface $moduleDataSetup,
-    	EavSetupFactory $eavSetupFactory
-	)
+    	ModuleDataSetupInterface $moduleDataSetup
+    )
     {
         $this->integrationManager = $integrationManager;
         $this->moduleDataSetup    = $moduleDataSetup;
-        $this->eavSetupFactory    = $eavSetupFactory;
     }
 
     /**
@@ -81,13 +72,7 @@ class PatchData implements DataPatchInterface
      */
 	public function revert()
 	{
-		$this->moduleDataSetup->getConnection()->startSetup();
-
-		$eavSetup = $this->eavSetupFactory->create([‘setup’ => $this->moduleDataSetup]);
-
-        $eavSetup->delete('patch_list', ['patch_name = ?' => '%SaleswarpShip%']);
-        $eavSetup->delete('integration', ['name = ?' => '%SaleswarpShip%']);
-
-		$this->moduleDataSetup->getConnection()->endSetup();
+        $this->moduleDataSetup->getConnection()->query("DELETE FROM `integration` WHERE `integration`.`name` LIKE 'SaleswarpShip%'");
+        $this->moduleDataSetup->getConnection()->query("DELETE FROM `patch_list` WHERE `patch_list`.`patch_name` LIKE 'Saleswarp\SaleswarpShip%'");
 	}
 }
